@@ -17,8 +17,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(__dirname + '/client'));
-app.use(express.static(__dirname + '/.bin'));
-app.use(express.static(__dirname + '/models'));
+//app.use(express.static(__dirname + '/.bin'));
+//app.use(express.static(__dirname + '/models'));
 //app.use(express.static('client'))
 //app.use('/', client);
 
