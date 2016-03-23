@@ -10,7 +10,6 @@ angular.module(appName)
             $scope.ZipCode;
             $scope.admins;
             $scope.aNewGaq;
-            $scope.currentGaq;
             //location: jobFactory.getLocation, start: jobFactory.getStart, limit: jobFactory.getLimit 
            // $scope.test = jobFactory.getStart();
            
@@ -24,7 +23,6 @@ angular.module(appName)
            }
            
            gaqService.get(function(data){
-                $scope.currentGaq = value;
                  var _gaq = _gaq || [];
                 _gaq.push(['_setAccount', data.value]);
                 _gaq.push(['_trackPageview']);
