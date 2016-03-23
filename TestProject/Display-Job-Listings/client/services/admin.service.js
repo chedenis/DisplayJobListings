@@ -7,7 +7,7 @@
             function ($resource, jobFactory) {
                console.log("got to adminservice");
                //104.236.240.201
-                return $resource("http://localhost:3000/admin", {},
+                return $resource("http://104.236.240.201:3000/admin", {},
                     {
                         login: { method: "POST", params: {}, isArray: true }
                     }
