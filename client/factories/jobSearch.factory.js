@@ -6,7 +6,6 @@ angular.module(appName)
         var location;
         var start;
         var limit;
-        //q
         var jobTitle;
 
             return {

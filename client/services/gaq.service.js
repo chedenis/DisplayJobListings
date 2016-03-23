@@ -1,4 +1,4 @@
-    
+
     var appName = "jobsearch";
         angular.module(appName)
         .service('gaqService', [

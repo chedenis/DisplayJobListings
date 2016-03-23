@@ -4,6 +4,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var routes = require('./routes/index');
+//var client = require('/client/index');
 var app = express();
 var http = require('http');
 var xml2js = require('xml2js');
@@ -15,8 +16,11 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'client')));
-app.use('/', routes);
+app.use(express.static(__dirname + '/client'));
+//app.use(express.static(__dirname + '/.bin'));
+//app.use(express.static(__dirname + '/models'));
+//app.use(express.static('client'))
+//app.use('/', client);
 
 
 
@@ -30,6 +34,10 @@ mongoose.connect(uri, function(err) {
   if (err) { console.log(err); return; }
   console.log("Client DB: connected"); 
 });
+
+// app.listen(3000, function() {
+//    console.log("pls work"); 
+// });
 
 //var router = express.Router();
 
