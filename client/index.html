@@ -36,7 +36,7 @@
                     <span class="input-group-addon"></span>
                     <input type="text" class="form-control" placeholder="Zip Code" ng-model="ZipCode"/>
                     <span class="input-group-addon"></span>
-                    <input type="button" class="form-control btn btn-primary" value="Submit" ng-click="jobsSearch()" ng-disabled="!JobTitle || !ZipCode"/>
+                    <input type="button" class="form-control btn btn-primary" value="Submit" ng-click="jobsSearch(0, 20)" ng-disabled="!JobTitle || !ZipCode"/>
                 </div>
             </form>
         </nav>
@@ -77,12 +77,15 @@
                         <th class="col-md-1">Posted Time</th>
                     </tr>
                     <tr ng-repeat="job in jobsOnly">
-                        <td>{{job.jobtitle[0]}}</td>
+                        <td><a ng-click="job.onmousedown[0]" ng-href="{{'http://' + job.url[0].substring(6)}}">{{job.jobtitle[0]}}</a></td>
                         <td>{{job.company[0]}}</td>
                         <td>{{job.formattedLocationFull[0]}}</td>
                         <td>{{job.formattedRelativeTime[0]}}</td>
                     </tr>
                 </table>
+                <input type="button" class="btn btn-primary" ng-click="jobsSearch(0, 20)" value="1" ng-disabled="!JobTitle || !ZipCode"/>
+                <input type="button" class="btn btn-primary" ng-click="jobsSearch(21, 40)" value="2" ng-disabled="!JobTitle || !ZipCode"/>
+                <input type="button" class="btn btn-primary" ng-click="jobsSearch(41, 60)" value="3" ng-disabled="!JobTitle || !ZipCode"/>
             </div>
 
         </div>

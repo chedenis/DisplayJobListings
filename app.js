@@ -68,7 +68,9 @@ app.get("/getJobs/:publisher?/:jobTitle?/:location?/:start?/:limit?/:channel?", 
     var ip = req.headers['x-forwarded-for'] || 
      req.connection.remoteAddress || 
      req.socket.remoteAddress ||
-     req.connection.socket.remoteAddress;    
+     req.connection.socket.remoteAddress;
+     
+     var userAgent = req.headers['user-agent'] || "";    
      console.log("This is my ip address");
      console.log(ip);   
     //"http://api.indeed.com/ads/apisearch?publisher=" + publisher + "&l=" + jobFactory.getLocation + "&start=" + jobFactory.getStart + "&limit=" + jobFactory.getLimit + "&chnl=" + channel + "&v=2",
@@ -78,7 +80,7 @@ app.get("/getJobs/:publisher?/:jobTitle?/:location?/:start?/:limit?/:channel?", 
     var limit = req.params.limit ? req.params.limit : "";
     var channel = req.params.channel ? req.params.channel : "";
     var jobTitle = req.params.jobTitle ? req.params.jobTitle : "";
-    var finalURL = apiForwardingHost + "?publisher=" + publisher + "&q=" + jobTitle + "&l=" + location + "&start=" + start + "&limit=" + limit + "&chnl=" + channel + "&v=2"
+    var finalURL = apiForwardingHost + "?publisher=" + publisher + "&q=" + jobTitle + "&l=" + location + "&start=" + start + "&limit=" + limit + "&chnl=" + channel + "&v=2" + "&userip=" + ip + "&useragent=" + userAgent;
     var finalReturn;
       //console.log("publisher " + publisher + " " + "location " + location + " " + "start " + start + " " + "limit " + limit + " " + "channel " + channel + " " + "jobTitle " + jobTitle);
      

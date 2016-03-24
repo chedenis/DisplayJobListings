@@ -3,7 +3,7 @@ angular.module(appName)
     .controller("jobSearch.controller", ["$scope", "$uibModal", "jobFactory", "jobService", "adminService", "gaqService",
         function ($scope, $uibModal, jobFactory, jobService, adminService, gaqService) {           
             jobFactory.setStart("0");
-            jobFactory.setLimit("50");
+            jobFactory.setLimit("20");
           
             $scope.jobsOnly;
             $scope.JobTitle;
@@ -41,7 +41,9 @@ angular.module(appName)
                })
            }
            
-            $scope.jobsSearch = function(){
+            $scope.jobsSearch = function(start, limit){
+                jobFactory.setStart(start);
+                jobFactory.setLimit(limit);
                 jobFactory.setLocation($scope.ZipCode);
                 jobFactory.setJobTitle($scope.JobTitle);
                 $scope.jobs = jobService.list(
